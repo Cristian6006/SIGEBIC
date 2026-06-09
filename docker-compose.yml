@@ -1,0 +1,51 @@
+services:
+  db:
+      image: postgres:16
+      environment:
+        POSTGRES_DB: biblioteca_db
+        POSTGRES_USER: biblioteca_user
+        POSTGRES_PASSWORD: biblioteca_pass
+      volumes:
+      - pg_data:/var/lib/postgresql/data
+      ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  api:
+    build:
+      context: ./SIGEBIC
+      dockerfile: \src\SIGEBIC.Web\DockerFile
+    environment:
+      ConnectionStrings__Postgres: "Host=db;Database=biblioteca_db;Username=biblioteca_user;Password=biblioteca_pass"
+      ConnectionStrings__Redis: "redis:6379"
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+      - redis
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: \DockerFile
+    ports:
+      - "5173:80"
+    depends_on:
+      - api
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api
+      - frontend
+
+volumes:
+  pg_data:

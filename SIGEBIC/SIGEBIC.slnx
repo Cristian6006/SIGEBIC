@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SIGEBIC.Application/SIGEBIC.Application.csproj" />
+    <Project Path="src/SIGEBIC.Domain/SIGEBIC.Domain.csproj" />
+    <Project Path="src/SIGEBIC.Infrastructure/SIGEBIC.Infrastructure.csproj" />
+    <Project Path="src/SIGEBIC.Web/SIGEBIC.Web.csproj" />
+  </Folder>
+</Solution>

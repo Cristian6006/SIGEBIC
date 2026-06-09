@@ -1,0 +1,17 @@
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\bin\Debug\net10.0\SIGEBIC.Infrastructure.deps.json
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\bin\Debug\net10.0\SIGEBIC.Infrastructure.dll
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\bin\Debug\net10.0\SIGEBIC.Infrastructure.pdb
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\bin\Debug\net10.0\SIGEBIC.Application.dll
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\bin\Debug\net10.0\SIGEBIC.Domain.dll
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\bin\Debug\net10.0\SIGEBIC.Application.pdb
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\bin\Debug\net10.0\SIGEBIC.Domain.pdb
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC.Infrastructure.AssemblyInfo.cs
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC..AA81CCFA.Up2Date
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC.Infrastructure.dll
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\refint\SIGEBIC.Infrastructure.dll
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC.Infrastructure.pdb
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\ref\SIGEBIC.Infrastructure.dll

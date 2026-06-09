@@ -1,0 +1,23 @@
+# Etapa de compilación
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+WORKDIR /app
+
+# Copiar archivos de proyecto y restaurar dependencias
+COPY src/SIGEBIC.Web/SIGEBIC.Web.csproj src/SIGEBIC.Web/
+COPY src/SIGEBIC.Infrastructure/SIGEBIC.Infrastructure.csproj src/SIGEBIC.Infrastructure/
+COPY src/SIGEBIC.Application/SIGEBIC.Application.csproj src/SIGEBIC.Application/
+COPY src/SIGEBIC.Domain/SIGEBIC.Domain.csproj src/SIGEBIC.Domain/
+RUN dotnet restore src/SIGEBIC.Web/SIGEBIC.Web.csproj
+
+# Copiar todo el código y publicar
+COPY . .
+WORKDIR /app/src/SIGEBIC.Web
+RUN dotnet publish -c Release -o /app/publish
+
+# Etapa de ejecución
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/publish .
+ENV ASPNETCORE_URLS=http://+:80
+EXPOSE 80
+ENTRYPOINT ["dotnet", "SIGEBIC.Web.dll"]

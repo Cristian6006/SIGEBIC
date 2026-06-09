@@ -1,0 +1,15 @@
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\bin\Debug\net10.0\SIGEBIC.Application.deps.json
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\bin\Debug\net10.0\SIGEBIC.Application.dll
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\bin\Debug\net10.0\SIGEBIC.Application.pdb
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\bin\Debug\net10.0\SIGEBIC.Domain.dll
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\bin\Debug\net10.0\SIGEBIC.Domain.pdb
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\obj\Debug\net10.0\SIGEBIC.Application.csproj.AssemblyReference.cache
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\obj\Debug\net10.0\SIGEBIC.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\obj\Debug\net10.0\SIGEBIC.Application.AssemblyInfoInputs.cache
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\obj\Debug\net10.0\SIGEBIC.Application.AssemblyInfo.cs
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\obj\Debug\net10.0\SIGEBIC.Application.csproj.CoreCompileInputs.cache
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\obj\Debug\net10.0\SIGEBIC..30125F7C.Up2Date
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\obj\Debug\net10.0\SIGEBIC.Application.dll
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\obj\Debug\net10.0\refint\SIGEBIC.Application.dll
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\obj\Debug\net10.0\SIGEBIC.Application.pdb
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Application\obj\Debug\net10.0\ref\SIGEBIC.Application.dll

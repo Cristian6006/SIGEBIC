@@ -1,0 +1,6 @@
+@SIGEBIC.Web_HostAddress = http://localhost:5188
+
+GET {{SIGEBIC.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
