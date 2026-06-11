@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SIGEBIC.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+145aa00fe1203228e42c7b060f76b408cfb63bc7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c82333554b435addf15f46c0be632575b281eb9c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SIGEBIC.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SIGEBIC.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

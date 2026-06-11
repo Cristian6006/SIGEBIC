@@ -19,6 +19,8 @@ public static class InfrastructureExtensions
             options.UseNpgsql(configuration.GetConnectionString("Postgres")));
 
         services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+        services.AddScoped<ILibroRepository, LibroRepository>();
+        services.AddScoped<IRolRepository, RolRepository>();
 
         // Cache
         services.AddSingleton<ICacheService, RedisCacheService>();

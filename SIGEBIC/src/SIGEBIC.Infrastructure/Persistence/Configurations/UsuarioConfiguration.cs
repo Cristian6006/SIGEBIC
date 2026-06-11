@@ -39,12 +39,15 @@ public class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
             .IsUnique();
 
         builder.Property(u => u.PasswordHash)
-            .IsRequired(); // No max length specified, meaning no limit in Fluent API (defaults to max/text/nvarchar(max))
+            .HasMaxLength(500)
+            .IsRequired();
 
         builder.Property(u => u.FechaRegistro)
+            .HasDefaultValueSql("NOW()")
             .IsRequired();
 
         builder.Property(u => u.Activo)
+            .HasDefaultValue(true)
             .IsRequired();
 
         // Relación muchos a uno con Rol
