@@ -10,6 +10,8 @@ import GestionUsuariosPage from '@/pages/usuarios/GestionUsuariosPage';
 import PerfilPage from '@/pages/usuarios/PerfilPage';
 import PrestamosActivosPage from '@/pages/prestamos/PrestamosActivosPage';
 import MisPrestamosPage from '@/pages/prestamos/MisPrestamosPage';
+import MultasPendientesPage from '@/pages/multas/MultasPendientesPage';
+import MisMultasPage from '@/pages/multas/MisMultasPage';
 
 const queryClient = new QueryClient();
 
@@ -69,6 +71,26 @@ function App() {
                 <ProtectedRoute>
                   <DashboardLayout>
                     <PerfilPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/multas"
+              element={
+                <ProtectedRoute allowedRoles={['Administrador', 'Bibliotecario']}>
+                  <DashboardLayout>
+                    <MultasPendientesPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/mis-multas"
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <MisMultasPage />
                   </DashboardLayout>
                 </ProtectedRoute>
               }

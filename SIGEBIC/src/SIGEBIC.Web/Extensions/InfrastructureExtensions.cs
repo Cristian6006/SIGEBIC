@@ -24,6 +24,7 @@ public static class InfrastructureExtensions
         services.AddScoped<IRolRepository, RolRepository>();
         services.AddScoped<IPrestamoRepository, PrestamoRepository>();
         services.AddScoped<IHistorialPrestamoRepository, HistorialPrestamoRepository>();
+        services.AddScoped<IMultaRepository, MultaRepository>();
 
         // Unit of Work
         services.AddScoped<IUnitOfWork, UnitOfWork>();

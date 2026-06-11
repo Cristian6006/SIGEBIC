@@ -66,6 +66,14 @@ public class Multa
     }
 
     /// <summary>
+    /// Agrega o reemplaza las observaciones de la multa.
+    /// </summary>
+    public void AgregarObservaciones(string observaciones)
+    {
+        Observaciones = observaciones;
+    }
+
+    /// <summary>
     /// Registra el pago de la multa. Si ya estaba pagada, lanza una excepción.
     /// </summary>
     public void Pagar(DateTime fechaPago)

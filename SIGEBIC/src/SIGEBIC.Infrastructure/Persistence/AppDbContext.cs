@@ -9,7 +9,7 @@ public class AppDbContext : DbContext
     public DbSet<Libro> Libros => Set<Libro>();
     public DbSet<Prestamo> Prestamos => Set<Prestamo>();
     public DbSet<HistorialPrestamo> HistorialPrestamos => Set<HistorialPrestamo>();
-    // public DbSet<Multa> Multas => Set<Multa>();
+    public DbSet<Multa> Multas => Set<Multa>();
     // public DbSet<Notificacion> Notificaciones => Set<Notificacion>();
     // public DbSet<Reserva> Reservas => Set<Reserva>();
     public DbSet<Rol> Roles => Set<Rol>();
