@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8qyF5UQWZL8=",
+  "dgSpecHash": "ljFyvRo8j1s=",
   "success": true,
   "projectFilePath": "C:\\Users\\ccifu\\OneDrive\\Escritorio\\SIGEBIC\\SIGEBIC\\src\\SIGEBIC.Application\\SIGEBIC.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ccifu\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
     "C:\\Users\\ccifu\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
     "C:\\Users\\ccifu\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.1\\fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
     "C:\\Users\\ccifu\\.nuget\\packages\\mediatr\\14.1.0\\mediatr.14.1.0.nupkg.sha512",

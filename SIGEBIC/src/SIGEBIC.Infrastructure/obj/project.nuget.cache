@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9W1lYMrmYnI=",
+  "dgSpecHash": "KQ8srdPFGs4=",
   "success": true,
   "projectFilePath": "C:\\Users\\ccifu\\OneDrive\\Escritorio\\SIGEBIC\\SIGEBIC\\src\\SIGEBIC.Infrastructure\\SIGEBIC.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,7 @@
     "C:\\Users\\ccifu\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\10.0.2\\npgsql.entityframeworkcore.postgresql.10.0.2.nupkg.sha512",
     "C:\\Users\\ccifu\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.16\\pipelines.sockets.unofficial.2.2.16.nupkg.sha512",
     "C:\\Users\\ccifu\\.nuget\\packages\\stackexchange.redis\\2.13.17\\stackexchange.redis.2.13.17.nupkg.sha512",
+    "C:\\Users\\ccifu\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.8.0\\system.identitymodel.tokens.jwt.8.8.0.nupkg.sha512",
     "C:\\Users\\ccifu\\.nuget\\packages\\system.io.hashing\\10.0.2\\system.io.hashing.10.0.2.nupkg.sha512"
   ],
   "logs": []

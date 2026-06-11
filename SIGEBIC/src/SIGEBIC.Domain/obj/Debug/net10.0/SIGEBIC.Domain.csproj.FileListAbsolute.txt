@@ -5,6 +5,7 @@ C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Domain\obj\Debug\
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Domain\obj\Debug\net10.0\SIGEBIC.Domain.AssemblyInfoInputs.cache
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Domain\obj\Debug\net10.0\SIGEBIC.Domain.AssemblyInfo.cs
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Domain\obj\Debug\net10.0\SIGEBIC.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Domain\obj\Debug\net10.0\SIGEBIC.Domain.sourcelink.json
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Domain\obj\Debug\net10.0\SIGEBIC.Domain.dll
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Domain\obj\Debug\net10.0\refint\SIGEBIC.Domain.dll
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Domain\obj\Debug\net10.0\SIGEBIC.Domain.pdb
