@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { BookOpen, Pencil, Trash2 } from 'lucide-react';
+import { BookOpen, Pencil, Trash2, History } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { useLibros, useDarDeBajaLibro } from '@/hooks/useLibros';
 import type { LibroDto, LibrosFiltros } from '@/types/libro.types';
 import LibroFormModal from './LibroFormModal';
+import HistorialLibroModal from '@/pages/prestamos/HistorialLibroModal';
 
 type Rol = 'Administrador' | 'Bibliotecario' | 'Lector';
 
@@ -25,9 +26,14 @@ export default function CatalogoPage() {
 
   const { data, isLoading, isError } = useLibros(filtros);
 
-  // Modal
+  // Modal crear/editar
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedLibro, setSelectedLibro] = useState<LibroDto | null>(null);
+
+  // Modal historial
+  const [historialModalOpen, setHistorialModalOpen] = useState(false);
+  const [historialLibroId, setHistorialLibroId] = useState<string | null>(null);
+  const [historialTitulo, setHistorialTitulo] = useState('');
 
   // Dar de baja
   const darDeBaja = useDarDeBajaLibro();
@@ -63,6 +69,12 @@ export default function CatalogoPage() {
   function handleEditarLibro(libro: LibroDto) {
     setSelectedLibro(libro);
     setModalOpen(true);
+  }
+
+  function handleVerHistorial(libro: LibroDto) {
+    setHistorialLibroId(libro.id);
+    setHistorialTitulo(libro.titulo);
+    setHistorialModalOpen(true);
   }
 
   async function handleDarDeBaja(id: string) {
@@ -235,6 +247,13 @@ export default function CatalogoPage() {
                   </td>
                   <td className="px-4 py-3 text-right">
                     <div className="flex items-center justify-end gap-1">
+                      <button
+                        onClick={() => handleVerHistorial(libro)}
+                        className="rounded-md p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground"
+                        title="Ver historial"
+                      >
+                        <History className="h-4 w-4" />
+                      </button>
                       {(rol === 'Administrador' || rol === 'Bibliotecario') && (
                         <button
                           onClick={() => handleEditarLibro(libro)}
@@ -294,6 +313,14 @@ export default function CatalogoPage() {
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         libro={selectedLibro}
+      />
+
+      {/* Modal historial */}
+      <HistorialLibroModal
+        open={historialModalOpen}
+        onClose={() => setHistorialModalOpen(false)}
+        libroId={historialLibroId}
+        tituloLibro={historialTitulo}
       />
     </div>
   );

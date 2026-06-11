@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, Users, User, Menu } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Users, User, BookCheck, Notebook, Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/hooks/useAuth';
 import { Sheet, SheetContent, SheetClose } from '@/components/ui/sheet';
@@ -19,6 +19,8 @@ export default function Sidebar({ open = false, onOpenChange, isMobile = false }
     { to: '/catalogo', label: 'Libros', icon: BookOpen, roles: ['Administrador', 'Bibliotecario', 'Lector'] },
     { to: '/usuarios', label: 'Usuarios', icon: Users, roles: ['Administrador'] },
     { to: '/perfil', label: 'Mi perfil', icon: User, roles: ['Administrador', 'Bibliotecario', 'Lector'] },
+    { to: '/prestamos', label: 'Préstamos', icon: BookCheck, roles: ['Administrador', 'Bibliotecario'] },
+    { to: '/mis-prestamos', label: 'Mis Préstamos', icon: Notebook, roles: ['Administrador', 'Bibliotecario', 'Lector'] },
   ];
 
   // Filtrar items según el rol
