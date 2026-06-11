@@ -6,7 +6,7 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
 
     public DbSet<Usuario> Usuarios => Set<Usuario>();
-    // public DbSet<Libro> Libros => Set<Libro>();
+    public DbSet<Libro> Libros => Set<Libro>();
     // public DbSet<Prestamo> Prestamos => Set<Prestamo>();
     // public DbSet<HistorialPrestamo> HistorialPrestamos => Set<HistorialPrestamo>();
     // public DbSet<Multa> Multas => Set<Multa>();

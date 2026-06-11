@@ -5,6 +5,7 @@ import ProtectedRoute from '@/components/shared/ProtectedRoute';
 import DashboardLayout from '@/components/layout/dashboard-layout';
 import LoginPage from '@/pages/auth/LoginPage';
 import DashboardPage from '@/pages/DashboardPage';
+import CatalogoPage from '@/pages/libros/CatalogoPage';
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,16 @@ function App() {
                 <ProtectedRoute>
                   <DashboardLayout>
                     <DashboardPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/catalogo"
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <CatalogoPage />
                   </DashboardLayout>
                 </ProtectedRoute>
               }

@@ -12,7 +12,7 @@ interface SidebarProps {
 
 const navItems = [
   { to: '/dashboard', label: 'Inicio', icon: LayoutDashboard },
-  { to: '/dashboard', label: 'Libros', icon: BookOpen },
+  { to: '/catalogo', label: 'Libros', icon: BookOpen },
   { to: '/dashboard', label: 'Socios', icon: Users },
   { to: '/dashboard', label: 'Alertas', icon: AlertTriangle },
 ];

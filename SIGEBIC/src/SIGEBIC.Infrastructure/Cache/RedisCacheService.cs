@@ -27,4 +27,9 @@ public class RedisCacheService : ICacheService
     {
         await _database.KeyDeleteAsync(key);
     }
+
+    public async Task<bool> ExistsAsync(string key)
+    {
+        return await _database.KeyExistsAsync(key);
+    }
 }
