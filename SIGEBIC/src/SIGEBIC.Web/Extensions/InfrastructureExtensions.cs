@@ -20,6 +20,7 @@ public static class InfrastructureExtensions
 
         services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         services.AddScoped<ILibroRepository, LibroRepository>();
+        services.AddScoped<IRolRepository, RolRepository>();
 
         // Cache
         services.AddSingleton<ICacheService, RedisCacheService>();

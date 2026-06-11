@@ -6,6 +6,8 @@ import DashboardLayout from '@/components/layout/dashboard-layout';
 import LoginPage from '@/pages/auth/LoginPage';
 import DashboardPage from '@/pages/DashboardPage';
 import CatalogoPage from '@/pages/libros/CatalogoPage';
+import GestionUsuariosPage from '@/pages/usuarios/GestionUsuariosPage';
+import PerfilPage from '@/pages/usuarios/PerfilPage';
 
 const queryClient = new QueryClient();
 
@@ -45,6 +47,26 @@ function App() {
                 <ProtectedRoute>
                   <DashboardLayout>
                     <CatalogoPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/usuarios"
+              element={
+                <ProtectedRoute allowedRoles={['Administrador']}>
+                  <DashboardLayout>
+                    <GestionUsuariosPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/perfil"
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <PerfilPage />
                   </DashboardLayout>
                 </ProtectedRoute>
               }

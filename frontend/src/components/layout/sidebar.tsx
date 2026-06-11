@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, Users, AlertTriangle, Menu } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Users, User, Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
-// import { Button } from '@/components/ui/button';
+import { useAuth } from '@/hooks/useAuth';
 import { Sheet, SheetContent, SheetClose } from '@/components/ui/sheet';
 
 interface SidebarProps {
@@ -10,15 +10,21 @@ interface SidebarProps {
   isMobile?: boolean;
 }
 
-const navItems = [
-  { to: '/dashboard', label: 'Inicio', icon: LayoutDashboard },
-  { to: '/catalogo', label: 'Libros', icon: BookOpen },
-  { to: '/dashboard', label: 'Socios', icon: Users },
-  { to: '/dashboard', label: 'Alertas', icon: AlertTriangle },
-];
-
 export default function Sidebar({ open = false, onOpenChange, isMobile = false }: SidebarProps) {
   const location = useLocation();
+  const { usuario } = useAuth();
+
+  const navItems = [
+    { to: '/dashboard', label: 'Inicio', icon: LayoutDashboard, roles: ['Administrador', 'Bibliotecario', 'Lector'] },
+    { to: '/catalogo', label: 'Libros', icon: BookOpen, roles: ['Administrador', 'Bibliotecario', 'Lector'] },
+    { to: '/usuarios', label: 'Usuarios', icon: Users, roles: ['Administrador'] },
+    { to: '/perfil', label: 'Mi perfil', icon: User, roles: ['Administrador', 'Bibliotecario', 'Lector'] },
+  ];
+
+  // Filtrar items según el rol
+  const visibleItems = navItems.filter(
+    (item) => !item.roles.length || (usuario && item.roles.includes(usuario.rol))
+  );
 
   const sidebarContent = (
     <div className="flex h-full flex-col gap-2">
@@ -33,7 +39,7 @@ export default function Sidebar({ open = false, onOpenChange, isMobile = false }
       </div>
 
       <nav className="flex-1 space-y-1 px-3 py-2">
-        {navItems.map((item) => {
+        {visibleItems.map((item) => {
           const isActive = location.pathname === item.to;
           const Icon = item.icon;
           return (
