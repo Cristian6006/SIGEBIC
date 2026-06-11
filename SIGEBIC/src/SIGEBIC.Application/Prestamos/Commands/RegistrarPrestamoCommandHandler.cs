@@ -77,7 +77,16 @@ public class RegistrarPrestamoCommandHandler : IRequestHandler<RegistrarPrestamo
                     ["UsuarioId"] = new[] { "El usuario tiene multas pendientes. Debe pagarlas antes de realizar un nuevo préstamo." }
                 });
 
-        // 4.
+        // 4. Crear la entidad Prestamo
+        var prestamo = new Prestamo(
+            Guid.NewGuid(),
+            request.UsuarioId,
+            request.LibroId,
+            DateTime.UtcNow,
+            DateTime.UtcNow.AddDays(request.DiasPrestamo),
+            request.Observaciones);
+
+        // 5. Descontar ejemplar del libro
         libro.DescontarEjemplar();
 
         // 6. Persistir todo dentro de una transacción explícita

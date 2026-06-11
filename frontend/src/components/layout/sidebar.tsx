@@ -1,7 +1,8 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, Users, User, BookCheck, Notebook, Menu } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Users, User, BookCheck, Notebook, Menu, DollarSign } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/hooks/useAuth';
+import { useMultasPendientes } from '@/hooks/useMultas';
 import { Sheet, SheetContent, SheetClose } from '@/components/ui/sheet';
 
 interface SidebarProps {
@@ -14,13 +15,17 @@ export default function Sidebar({ open = false, onOpenChange, isMobile = false }
   const location = useLocation();
   const { usuario } = useAuth();
 
+  const { data: multasPendientes } = useMultasPendientes();
+
   const navItems = [
     { to: '/dashboard', label: 'Inicio', icon: LayoutDashboard, roles: ['Administrador', 'Bibliotecario', 'Lector'] },
     { to: '/catalogo', label: 'Libros', icon: BookOpen, roles: ['Administrador', 'Bibliotecario', 'Lector'] },
     { to: '/usuarios', label: 'Usuarios', icon: Users, roles: ['Administrador'] },
+    { to: '/multas', label: 'Multas', icon: DollarSign, roles: ['Administrador', 'Bibliotecario'] },
     { to: '/perfil', label: 'Mi perfil', icon: User, roles: ['Administrador', 'Bibliotecario', 'Lector'] },
     { to: '/prestamos', label: 'Préstamos', icon: BookCheck, roles: ['Administrador', 'Bibliotecario'] },
     { to: '/mis-prestamos', label: 'Mis Préstamos', icon: Notebook, roles: ['Administrador', 'Bibliotecario', 'Lector'] },
+    { to: '/mis-multas', label: 'Mis Multas', icon: DollarSign, roles: ['Administrador', 'Bibliotecario', 'Lector'] },
   ];
 
   // Filtrar items según el rol
@@ -44,6 +49,10 @@ export default function Sidebar({ open = false, onOpenChange, isMobile = false }
         {visibleItems.map((item) => {
           const isActive = location.pathname === item.to;
           const Icon = item.icon;
+          const badgeCount =
+            item.label === 'Multas' && item.to === '/multas'
+              ? multasPendientes?.length ?? 0
+              : 0;
           return (
             <NavLink
               key={item.label}
@@ -58,6 +67,11 @@ export default function Sidebar({ open = false, onOpenChange, isMobile = false }
             >
               <Icon className="h-4 w-4" />
               {item.label}
+              {badgeCount > 0 && (
+                <span className="ml-auto inline-flex items-center justify-center rounded-full bg-red-500 px-1.5 py-0.5 text-xs font-bold text-white min-w-5">
+                  {badgeCount}
+                </span>
+              )}
             </NavLink>
           );
         })}

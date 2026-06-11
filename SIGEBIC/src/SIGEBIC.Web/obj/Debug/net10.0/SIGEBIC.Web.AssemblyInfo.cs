@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SIGEBIC.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8944807ff85a8cdb70b6860272971a58851b306")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9a888fcdbb9230da70040e8023d5e45e6f27abd")]
 [assembly: System.Reflection.AssemblyProductAttribute("SIGEBIC.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SIGEBIC.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
