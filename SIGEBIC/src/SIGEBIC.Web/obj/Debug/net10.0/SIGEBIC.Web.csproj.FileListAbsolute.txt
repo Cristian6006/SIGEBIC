@@ -19,7 +19,6 @@ C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Web\bin\Debug\net
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Web\bin\Debug\net10.0\MediatR.dll
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Web\bin\Debug\net10.0\MediatR.Contracts.dll
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Web\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Web\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Web\bin\Debug\net10.0\Microsoft.Build.Framework.dll
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Web\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Web\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
