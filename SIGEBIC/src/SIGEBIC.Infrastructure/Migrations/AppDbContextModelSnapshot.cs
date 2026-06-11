@@ -21,6 +21,54 @@ namespace SIGEBIC.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("SIGEBIC.Domain.Entities.HistorialPrestamo", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("DiasRetraso")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0);
+
+                    b.Property<string>("EstadoFinal")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<DateTime>("FechaDevolucionReal")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("FechaPrestamo")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("LibroId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Observaciones")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<Guid>("PrestamoId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PrestamoId");
+
+                    b.HasIndex("LibroId", "FechaPrestamo")
+                        .HasDatabaseName("IX_HistorialPrestamos_LibroId_FechaPrestamo");
+
+                    b.HasIndex("UsuarioId", "FechaPrestamo")
+                        .HasDatabaseName("IX_HistorialPrestamos_UsuarioId_FechaPrestamo");
+
+                    b.ToTable("HistorialPrestamos", (string)null);
+                });
+
             modelBuilder.Entity("SIGEBIC.Domain.Entities.Libro", b =>
                 {
                     b.Property<Guid>("Id")
@@ -77,6 +125,52 @@ namespace SIGEBIC.Infrastructure.Migrations
                         {
                             t.HasCheckConstraint("CK_Libros_CantidadDisponible", "\"CantidadDisponible\" >= 0 AND \"CantidadDisponible\" <= \"CantidadTotal\"");
                         });
+                });
+
+            modelBuilder.Entity("SIGEBIC.Domain.Entities.Prestamo", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("CantidadRenovaciones")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0);
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<DateTime>("FechaDevolucionEsperada")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("FechaDevolucionReal")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("FechaPrestamo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW()");
+
+                    b.Property<Guid>("LibroId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Observaciones")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LibroId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Prestamos", (string)null);
                 });
 
             modelBuilder.Entity("SIGEBIC.Domain.Entities.Rol", b =>
@@ -158,6 +252,52 @@ namespace SIGEBIC.Infrastructure.Migrations
                     b.HasIndex("RolId");
 
                     b.ToTable("Usuarios", (string)null);
+                });
+
+            modelBuilder.Entity("SIGEBIC.Domain.Entities.HistorialPrestamo", b =>
+                {
+                    b.HasOne("SIGEBIC.Domain.Entities.Libro", "Libro")
+                        .WithMany()
+                        .HasForeignKey("LibroId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SIGEBIC.Domain.Entities.Prestamo", "Prestamo")
+                        .WithMany()
+                        .HasForeignKey("PrestamoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SIGEBIC.Domain.Entities.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Libro");
+
+                    b.Navigation("Prestamo");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("SIGEBIC.Domain.Entities.Prestamo", b =>
+                {
+                    b.HasOne("SIGEBIC.Domain.Entities.Libro", "Libro")
+                        .WithMany()
+                        .HasForeignKey("LibroId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SIGEBIC.Domain.Entities.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Libro");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("SIGEBIC.Domain.Entities.Usuario", b =>
