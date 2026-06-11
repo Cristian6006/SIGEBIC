@@ -40,7 +40,7 @@ export default function DashboardPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-black">Dashboard</h1>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-gray-500">
           Bienvenido al panel de gestión de la biblioteca.
         </p>
       </div>
@@ -51,12 +51,12 @@ export default function DashboardPage() {
           return (
             <Card key={metric.title}>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground">
+                <CardTitle className="text-sm font-medium text-black">
                   {metric.title}
                 </CardTitle>
                 <Icon
                   className={`h-4 w-4 ${
-                    metric.alert ? 'text-destructive' : 'text-muted-foreground'
+                    metric.alert ? 'text-destructive' : 'text-gray-500'
                   }`}
                 />
               </CardHeader>
@@ -68,7 +68,7 @@ export default function DashboardPage() {
                 >
                   {metric.value}
                 </div>
-                <p className="text-xs text-muted-foreground">{metric.description}</p>
+                <p className="text-xs text-gray-500">{metric.description}</p>
               </CardContent>
             </Card>
           );
@@ -87,9 +87,9 @@ export default function DashboardPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b text-left">
-                  <th className="pb-3 font-medium text-muted-foreground">Libro</th>
-                  <th className="pb-3 font-medium text-muted-foreground">Socio</th>
-                  <th className="pb-3 font-medium text-muted-foreground">Fecha</th>
+                  <th className="pb-3 font-medium text-gray-700">Libro</th>
+                  <th className="pb-3 font-medium text-gray-700">Socio</th>
+                  <th className="pb-3 font-medium text-gray-700">Fecha</th>
                 </tr>
               </thead>
               <tbody>
@@ -97,7 +97,7 @@ export default function DashboardPage() {
                   <tr key={`${loan.book}-${loan.member}`} className="border-b last:border-0">
                     <td className="py-3">{loan.book}</td>
                     <td className="py-3">{loan.member}</td>
-                    <td className="py-3 text-muted-foreground">
+                    <td className="py-3 text-gray-500">
                       {new Date(loan.date).toLocaleDateString('es-CO', {
                         year: 'numeric',
                         month: 'short',

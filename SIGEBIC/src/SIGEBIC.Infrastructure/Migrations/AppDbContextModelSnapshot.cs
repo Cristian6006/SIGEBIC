@@ -127,6 +127,56 @@ namespace SIGEBIC.Infrastructure.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SIGEBIC.Domain.Entities.Multa", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("DiasRetraso")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("FechaGeneracion")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW()");
+
+                    b.Property<DateTime?>("FechaPago")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<decimal>("MontoPorDia")
+                        .HasColumnType("decimal(10, 2)");
+
+                    b.Property<decimal>("MontoTotal")
+                        .HasColumnType("decimal(10, 2)");
+
+                    b.Property<string>("Observaciones")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<bool>("Pagada")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false);
+
+                    b.Property<Guid>("PrestamoId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PrestamoId")
+                        .IsUnique()
+                        .HasDatabaseName("IX_Multas_PrestamoId");
+
+                    b.HasIndex("UsuarioId", "Pagada")
+                        .HasDatabaseName("IX_Multas_UsuarioId_Pagada");
+
+                    b.ToTable("Multas", (string)null);
+                });
+
             modelBuilder.Entity("SIGEBIC.Domain.Entities.Prestamo", b =>
                 {
                     b.Property<Guid>("Id")
@@ -279,6 +329,23 @@ namespace SIGEBIC.Infrastructure.Migrations
                     b.Navigation("Prestamo");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("SIGEBIC.Domain.Entities.Multa", b =>
+                {
+                    b.HasOne("SIGEBIC.Domain.Entities.Prestamo", "Prestamo")
+                        .WithMany()
+                        .HasForeignKey("PrestamoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SIGEBIC.Domain.Entities.Usuario", null)
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Prestamo");
                 });
 
             modelBuilder.Entity("SIGEBIC.Domain.Entities.Prestamo", b =>

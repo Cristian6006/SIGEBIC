@@ -12,6 +12,7 @@ public class RegistrarPrestamoCommandHandler : IRequestHandler<RegistrarPrestamo
     private readonly IPrestamoRepository _prestamoRepository;
     private readonly ILibroRepository _libroRepository;
     private readonly IUsuarioRepository _usuarioRepository;
+    private readonly IMultaRepository _multaRepository;
     private readonly IPublisher _publisher;
     private readonly IUnitOfWork _unitOfWork;
 
@@ -19,12 +20,14 @@ public class RegistrarPrestamoCommandHandler : IRequestHandler<RegistrarPrestamo
         IPrestamoRepository prestamoRepository,
         ILibroRepository libroRepository,
         IUsuarioRepository usuarioRepository,
+        IMultaRepository multaRepository,
         IPublisher publisher,
         IUnitOfWork unitOfWork)
     {
         _prestamoRepository = prestamoRepository;
         _libroRepository = libroRepository;
         _usuarioRepository = usuarioRepository;
+        _multaRepository = multaRepository;
         _publisher = publisher;
         _unitOfWork = unitOfWork;
     }
@@ -63,6 +66,15 @@ public class RegistrarPrestamoCommandHandler : IRequestHandler<RegistrarPrestamo
                 new Dictionary<string, string[]>
                 {
                     ["LibroId"] = new[] { "El usuario ya tiene este libro prestado." }
+                });
+
+        // 3.5 Validar que el usuario no tenga multas pendientes
+        var tieneMultaPendiente = await _multaRepository.TieneMultaPendienteAsync(request.UsuarioId);
+        if (tieneMultaPendiente)
+            throw new ValidationException(
+                new Dictionary<string, string[]>
+                {
+                    ["UsuarioId"] = new[] { "El usuario tiene multas pendientes. Debe pagarlas antes de realizar un nuevo préstamo." }
                 });
 
         // 4. Crear la entidad Prestamo
