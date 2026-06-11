@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using SIGEBIC.Domain.Interfaces;
 using SIGEBIC.Infrastructure.Auth;
 using SIGEBIC.Infrastructure.Cache;
+using SIGEBIC.Infrastructure.Persistence;
 using SIGEBIC.Infrastructure.Repositories;
 
 namespace SIGEBIC.Web.Extensions;
@@ -21,6 +22,11 @@ public static class InfrastructureExtensions
         services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         services.AddScoped<ILibroRepository, LibroRepository>();
         services.AddScoped<IRolRepository, RolRepository>();
+        services.AddScoped<IPrestamoRepository, PrestamoRepository>();
+        services.AddScoped<IHistorialPrestamoRepository, HistorialPrestamoRepository>();
+
+        // Unit of Work
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         // Cache
         services.AddSingleton<ICacheService, RedisCacheService>();

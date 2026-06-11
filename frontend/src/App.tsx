@@ -8,6 +8,8 @@ import DashboardPage from '@/pages/DashboardPage';
 import CatalogoPage from '@/pages/libros/CatalogoPage';
 import GestionUsuariosPage from '@/pages/usuarios/GestionUsuariosPage';
 import PerfilPage from '@/pages/usuarios/PerfilPage';
+import PrestamosActivosPage from '@/pages/prestamos/PrestamosActivosPage';
+import MisPrestamosPage from '@/pages/prestamos/MisPrestamosPage';
 
 const queryClient = new QueryClient();
 
@@ -67,6 +69,26 @@ function App() {
                 <ProtectedRoute>
                   <DashboardLayout>
                     <PerfilPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/prestamos"
+              element={
+                <ProtectedRoute allowedRoles={['Administrador', 'Bibliotecario']}>
+                  <DashboardLayout>
+                    <PrestamosActivosPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/mis-prestamos"
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <MisPrestamosPage />
                   </DashboardLayout>
                 </ProtectedRoute>
               }
