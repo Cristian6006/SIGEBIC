@@ -106,7 +106,9 @@ namespace SIGEBIC.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<bool>("Activo")
-                        .HasColumnType("boolean");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true);
 
                     b.Property<string>("Apellido")
                         .IsRequired()
@@ -119,7 +121,9 @@ namespace SIGEBIC.Infrastructure.Migrations
                         .HasColumnType("character varying(150)");
 
                     b.Property<DateTime>("FechaRegistro")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW()");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -133,7 +137,8 @@ namespace SIGEBIC.Infrastructure.Migrations
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<Guid>("RolId")
                         .HasColumnType("uuid");

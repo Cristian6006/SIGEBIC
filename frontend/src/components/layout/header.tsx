@@ -85,7 +85,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
               </span>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => navigate('/dashboard')}>
+            <DropdownMenuItem onClick={() => navigate('/perfil')}>
               <User className="mr-2 h-4 w-4" />
               Mi Perfil
             </DropdownMenuItem>

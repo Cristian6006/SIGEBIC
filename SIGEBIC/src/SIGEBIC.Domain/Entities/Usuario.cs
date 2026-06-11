@@ -19,6 +19,17 @@ public class Usuario
     {
     }
 
+    // Métodos de dominio
+    public void CambiarPassword(string nuevoHash) => PasswordHash = nuevoHash;
+
+    public void Desactivar() => Activo = false;
+
+    public void Activar() => Activo = true;
+
+    public void AsignarRol(Guid rolId) => RolId = rolId;
+
+    public string NombreCompleto() => $"{Nombre} {Apellido}";
+
     // Constructor con todos los parámetros requeridos
     public Usuario(
         Guid id,
