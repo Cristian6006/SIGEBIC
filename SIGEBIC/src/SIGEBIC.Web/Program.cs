@@ -4,34 +4,28 @@ using Hangfire;
 using Hangfire.PostgreSql;
 using StackExchange.Redis;
 using FluentValidation;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using SIGEBIC.Application;
+using SIGEBIC.Infrastructure.Persistence;
+using SIGEBIC.Web.Extensions;
+using SIGEBIC.Web.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// PostgreSQL
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("Postgres")));
+// Infraestructura (Base de datos, Repositorios, Redis, JWT y Autenticación)
+builder.Services.AddInfrastructure(builder.Configuration);
 
-// Redis
+// Redis (singleton compartido con la infraestructura)
 builder.Services.AddSingleton<IConnectionMultiplexer>(
     ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("Redis")!));
 
-// MediatR — escanea la capa Application
-builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssembly(typeof(ApplicationAssemblyMarker).Assembly));
-
-// FluentValidation
-builder.Services.AddValidatorsFromAssembly(typeof(ApplicationAssemblyMarker).Assembly);
+// Application (MediatR + FluentValidation + ValidationBehavior)
+builder.Services.AddApplication();
 
 // Hangfire
 builder.Services.AddHangfire(config =>
     config.UsePostgreSqlStorage(options =>
         options.UseNpgsqlConnection(builder.Configuration.GetConnectionString("Postgres"))));
 builder.Services.AddHangfireServer();
-
-// JWT (configuración mínima, se completa en Fase 1)
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer();
 
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
@@ -40,15 +34,23 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Aplicar migraciones automáticamente al iniciar
+// Aplicar migraciones automáticamente al iniciar y seed de datos
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     db.Database.Migrate();
+    await DbSeeder.SeedAsync(db);
 }
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
+// Middleware global de manejo de excepciones (primero)
+app.UseMiddleware<GlobalExceptionMiddleware>();
+
+// Middleware de validación de token en Redis (antes de UseAuthentication)
+app.UseMiddleware<TokenValidationMiddleware>();
+
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
@@ -56,5 +58,4 @@ app.MapHangfireDashboard("/hangfire");
 
 app.Run();
 
-// Marcador de ensamblado para MediatR y FluentValidation
 public abstract class ApplicationAssemblyMarker { }

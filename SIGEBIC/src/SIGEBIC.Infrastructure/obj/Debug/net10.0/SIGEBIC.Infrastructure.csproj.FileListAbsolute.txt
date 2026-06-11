@@ -10,6 +10,7 @@ C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\ob
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC.Infrastructure.AssemblyInfoInputs.cache
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC.Infrastructure.AssemblyInfo.cs
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC.Infrastructure.sourcelink.json
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC..AA81CCFA.Up2Date
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\SIGEBIC.Infrastructure.dll
 C:\Users\ccifu\OneDrive\Escritorio\SIGEBIC\SIGEBIC\src\SIGEBIC.Infrastructure\obj\Debug\net10.0\refint\SIGEBIC.Infrastructure.dll

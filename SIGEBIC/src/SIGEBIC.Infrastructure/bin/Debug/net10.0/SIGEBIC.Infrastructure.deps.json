@@ -15,7 +15,8 @@
           "Newtonsoft.Json": "13.0.3",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.2",
           "SIGEBIC.Application": "1.0.0",
-          "StackExchange.Redis": "2.13.17"
+          "StackExchange.Redis": "2.13.17",
+          "System.IdentityModel.Tokens.Jwt": "8.8.0"
         },
         "runtime": {
           "SIGEBIC.Infrastructure.dll": {}
@@ -386,6 +387,18 @@
           }
         }
       },
+      "System.IdentityModel.Tokens.Jwt/8.8.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.JsonWebTokens": "8.14.0",
+          "Microsoft.IdentityModel.Tokens": "8.14.0"
+        },
+        "runtime": {
+          "lib/net9.0/System.IdentityModel.Tokens.Jwt.dll": {
+            "assemblyVersion": "8.8.0.0",
+            "fileVersion": "8.8.0.60408"
+          }
+        }
+      },
       "System.IO.Hashing/10.0.2": {
         "runtime": {
           "lib/net10.0/System.IO.Hashing.dll": {
@@ -396,6 +409,7 @@
       },
       "SIGEBIC.Application/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.2.0",
           "FluentValidation": "12.1.1",
           "FluentValidation.DependencyInjectionExtensions": "12.1.1",
           "MediatR": "14.1.0",
@@ -633,6 +647,13 @@
       "sha512": "sha512-P7o7ZDBAmBrOLQEw8Pt44iIA08ioj48smRxn4Jp6yzCu6P3DOSU6lj7f+IOtN3pPvSgC9YufvM92ycukEEBCYQ==",
       "path": "stackexchange.redis/2.13.17",
       "hashPath": "stackexchange.redis.2.13.17.nupkg.sha512"
+    },
+    "System.IdentityModel.Tokens.Jwt/8.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/oIQ5jhVxpzutFOPYIxmvkVMCLLDwpN0CLcXjyxPflVRQGZRYi5x2IqHeJw+xJ2k2HUPmeTaM18La5wDbhJcQA==",
+      "path": "system.identitymodel.tokens.jwt/8.8.0",
+      "hashPath": "system.identitymodel.tokens.jwt.8.8.0.nupkg.sha512"
     },
     "System.IO.Hashing/10.0.2": {
       "type": "package",
