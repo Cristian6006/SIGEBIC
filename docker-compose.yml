@@ -8,7 +8,7 @@ services:
       volumes:
       - pg_data:/var/lib/postgresql/data
       ports:
-      - "5432:5432"
+      - "5433:5432"
 
   redis:
     image: redis:7-alpine
@@ -20,8 +20,12 @@ services:
       context: ./SIGEBIC
       dockerfile: \src\SIGEBIC.Web\DockerFile
     environment:
+      ASPNETCORE_ENVIRONMENT: Development
       ConnectionStrings__Postgres: "Host=db;Database=biblioteca_db;Username=biblioteca_user;Password=biblioteca_pass"
       ConnectionStrings__Redis: "redis:6379"
+      Jwt__SecretKey: "8f0b434367d7a73e131699464e8a43ab372a6c4b4283da84155fc4f6e4ef2b21"
+      Jwt__Issuer: "SIGEBIC"
+      Jwt__Audience: "SIGEBIC"
     ports:
       - "8080:80"
     depends_on:
@@ -32,6 +36,7 @@ services:
     build:
       context: ./frontend
       dockerfile: \DockerFile
+    restart: unless-stopped
     ports:
       - "5173:80"
     depends_on:
@@ -39,6 +44,7 @@ services:
 
   nginx:
     image: nginx:alpine
+    restart: unless-stopped
     ports:
       - "80:80"
     volumes:
