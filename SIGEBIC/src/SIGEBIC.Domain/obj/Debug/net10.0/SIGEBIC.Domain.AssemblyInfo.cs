@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SIGEBIC.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ef2827501e02e0793357759a57a6fbf6562ee8b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8944807ff85a8cdb70b6860272971a58851b306")]
 [assembly: System.Reflection.AssemblyProductAttribute("SIGEBIC.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SIGEBIC.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

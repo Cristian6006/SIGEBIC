@@ -6,6 +6,7 @@ using StackExchange.Redis;
 using FluentValidation;
 using Microsoft.OpenApi.Models;
 using SIGEBIC.Application;
+using SIGEBIC.Application.Common;
 using SIGEBIC.Infrastructure.Persistence;
 using SIGEBIC.Web.Extensions;
 using SIGEBIC.Web.Middlewares;
@@ -21,6 +22,10 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(
 
 // Application (MediatR + FluentValidation + ValidationBehavior)
 builder.Services.AddApplication();
+
+// MultaSettings
+builder.Services.Configure<MultaSettings>(
+    builder.Configuration.GetSection("MultaSettings"));
 
 // Hangfire
 builder.Services.AddHangfire(config =>

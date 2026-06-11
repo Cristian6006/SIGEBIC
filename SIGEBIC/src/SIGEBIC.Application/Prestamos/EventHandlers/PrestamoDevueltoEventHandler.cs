@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
+using SIGEBIC.Application.Multas.Commands;
 using SIGEBIC.Domain.Events;
 using SIGEBIC.Domain.Interfaces;
 
@@ -7,26 +8,26 @@ namespace SIGEBIC.Application.Prestamos.EventHandlers;
 
 public class PrestamoDevueltoEventHandler : INotificationHandler<PrestamoDevueltoEvent>
 {
-    private readonly IPublisher _publisher;
+    private readonly IMediator _mediator;
     private readonly ICacheService _cacheService;
     private readonly ILogger<PrestamoDevueltoEventHandler> _logger;
 
     public PrestamoDevueltoEventHandler(
-        IPublisher publisher,
+        IMediator mediator,
         ICacheService cacheService,
         ILogger<PrestamoDevueltoEventHandler> logger)
     {
-        _publisher = publisher;
+        _mediator = mediator;
         _cacheService = cacheService;
         _logger = logger;
     }
 
     public async Task Handle(PrestamoDevueltoEvent notification, CancellationToken cancellationToken)
     {
-        // Si hubo retraso, disparar el comando interno para generar multa
+        // Si hubo retraso, generar la multa real
         if (notification.DiasRetraso > 0)
         {
-            await _publisher.Publish(new GenerarMultaInternalCommand(
+            await _mediator.Send(new GenerarMultaCommand(
                 notification.PrestamoId,
                 notification.DiasRetraso), cancellationToken);
         }
