@@ -29,6 +29,7 @@ dependencies {
     implementation("org.apache.poi:poi:4.1.2")
     implementation("org.apache.poi:poi-ooxml:4.1.2")
     implementation("org.apache.commons:commons-math3:3.6.1")
+    implementation("net.datafaker:datafaker:2.1.0")
 
     testImplementation("junit:junit:4.13.2")
 }

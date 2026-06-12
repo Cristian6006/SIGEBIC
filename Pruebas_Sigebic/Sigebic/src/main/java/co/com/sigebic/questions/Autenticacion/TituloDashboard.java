@@ -6,7 +6,7 @@ import net.serenitybdd.screenplay.questions.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static co.com.sigebic.userInterfaces.DashBoard.TITULO_DASHBOARD;
+import static co.com.sigebic.userInterfaces.DashBoardUI.TITULO_DASHBOARD;
 
 public class TituloDashboard implements Question<Boolean> {
     private static final Logger logger =
